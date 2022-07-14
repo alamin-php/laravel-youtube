@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function(){
-   
+   Hunter::taxCalculate();
 });
 
 Route::get('/dashboard', function () {
