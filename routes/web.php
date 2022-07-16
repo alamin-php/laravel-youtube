@@ -21,6 +21,14 @@ Route::get('/test', function(){
    Hunter::taxCalculate();
 });
 
+Route::get('/country', function(){
+    return view('country');
+})->middleware('country')->name('country');
+
+Route::get('user', function(){
+    return view('user');
+})->middleware(['user'])->name('user');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
