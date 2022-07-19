@@ -125,6 +125,16 @@
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
+
+                    <ul>
+                        <li><a href="{{ url('test_controller') }}">Test controller</a></li>
+                        <li><a href="{{url('/about')}}">About Page</a></li>
+                        This come from welcome {{$name}}
+   @production
+     Production specific content...
+@endproduction
+                            
+                    </ul>
                 </div>
             </div>
         </div>

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Example\FirstController;
+use App\Http\Controllers\FirstController as FController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['name'=>'Bangladesh']);
 });
 
 Route::get('/test', function(){
    Hunter::taxCalculate();
 });
+
+Route::get('/test_controller', FirstController::class);
+Route::get('/test_invok', FirstController::class);
+
+Route::view('/contact', 'contact');
+Route::post('/contact/send', [FController::class, 'sendContact'])->name('contact.send');
 
 Route::get('/country', function(){
     return view('country');
@@ -28,6 +37,8 @@ Route::get('/country', function(){
 Route::get('user', function(){
     return view('user');
 })->middleware(['user'])->name('user');
+
+Route::resource('/photos', PhotoController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
